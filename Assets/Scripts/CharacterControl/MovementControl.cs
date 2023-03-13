@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 
 
@@ -15,6 +16,7 @@ public class MovementControl : MonoBehaviour
     [SerializeField]private float WalkVelocity = 1.0f;
     [SerializeField]private float RunVelocity = 3f;
     [SerializeField]private float SquatVelocity = 0.8f;
+
 
     // Collider Height Control
     [SerializeField] private float StandHeight;
@@ -110,7 +112,9 @@ public class MovementControl : MonoBehaviour
         else
         {
             RaycastHit hitInfo;
-            //Physics.Raycast()
+            Physics.Raycast(transform.position + Controller.center, Vector3.up,out hitInfo,
+                StandHeight - SquatHeight,LayerMask.GetMask("Obstacle"));
+            _squat = hitInfo.collider;
         }
 
         _animator.SetBool("Squat",_squat);
@@ -130,6 +134,10 @@ public class MovementControl : MonoBehaviour
         }
     }
 
+    void DrawLine()
+    {
+        
+    }
 
     #endregion
 

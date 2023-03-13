@@ -10,7 +10,6 @@ public class Detector : MonoBehaviour
     
     public float detectDistance;
     public GameObject Tip;
-    public Material selectedEffect;
     
     private InteractableObject _preSelected = null;
     private InteractableObject _currentSelected = null;
@@ -29,18 +28,17 @@ public class Detector : MonoBehaviour
         
         if (c != null && c.gameObject.tag.Equals("Interactable"))
         {
-            Tip.SetActive(true);
-            Vector3 screenPos = _cam.WorldToScreenPoint(c.transform.position);
-            Tip.transform.position = screenPos;
-            
-            _currentSelected = c.GetComponent<InteractableObject>();
+            _currentSelected = c.GetComponentInParent<InteractableObject>(true);
             if (_preSelected != _currentSelected && _preSelected != null)
             {
                 _preSelected.LostFocus();
                 _preSelected = _currentSelected;
             }
-            _currentSelected.Select(selectedEffect);
+            _currentSelected.Select();
             _preSelected = _currentSelected;
+            Tip.SetActive(true);
+            Vector3 screenPos = _cam.WorldToScreenPoint(_currentSelected.transform.position);
+            Tip.transform.position = screenPos;
         }
         else
         {
@@ -49,6 +47,7 @@ public class Detector : MonoBehaviour
             {
                     _preSelected.LostFocus();
                     _preSelected = null;
+                    _currentSelected = null;
             }
         }
     }

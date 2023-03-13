@@ -1,9 +1,5 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
-public class Door : InteractableObject
+public class Door : MonoBehaviour
 {
     public GameObject rotateObject;
     public Vector3 rotateAxis = Vector3.up;
@@ -21,7 +17,7 @@ public class Door : InteractableObject
         rotateAxis = rotateAxis.normalized;
     }
 
-    public override void Action()
+    public void ChangeState()
     {
         _rotating = true;
         open = !open;
@@ -29,13 +25,13 @@ public class Door : InteractableObject
 
     private void FixedUpdate()
     {
-        if (!_rotating)
+        if (!_rotating && targetCollider)
         {
             targetCollider.enabled = true;
             return;
         }
 
-        targetCollider.enabled = false;
+        if(targetCollider) targetCollider.enabled = false;
         float rotateDegree = rotateSpeed*Time.fixedDeltaTime;
         if (open)
         {

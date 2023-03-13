@@ -1,26 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+[RequireComponent(typeof(Outline))]
 public abstract class InteractableObject : MonoBehaviour
 {
     private string Tip;
     private MeshRenderer _renderer;
-    private Material[] _materials;
-    private Material[] _pMaterials;
-     
+    public Outline _outline;
+    [SerializeField] private Color outlineColor = Color.white;
+    [SerializeField] private float outlineWidth = 4.0f;
+    [SerializeField] private Outline.Mode mode;
     private void Awake()
     {
-        _renderer = gameObject.GetComponent<MeshRenderer>();
-         _pMaterials = _renderer.materials;
-        _materials = new Material[_pMaterials.Length + 1];
-        
-        for (int i = 0; i < _pMaterials.Length; ++i)
-        {
-            _materials[i] = _pMaterials[i];
-        }
-
-        _renderer.materials = _materials;
+        _outline = gameObject.GetComponent<Outline>();
+        _outline.OutlineColor = outlineColor;
+        _outline.OutlineWidth = outlineWidth;
+        _outline.OutlineMode = mode;
+        _outline.enabled = false;
     }
 
     public virtual string GetTip()
@@ -28,16 +24,14 @@ public abstract class InteractableObject : MonoBehaviour
         return Tip;
     }
 
-    public void Select(Material selMaterial)
+    public void Select()
     {
-        _materials[_materials.Length - 1] = selMaterial;
-        _renderer.materials = _materials;
+        _outline.enabled = true;
     }
 
     public void LostFocus()
     {
-        _materials[_materials.Length - 1] = null;
-        _renderer.materials = _pMaterials;
+        _outline.enabled = false;
     }
 
     public abstract void Action();

@@ -12,7 +12,8 @@ public class PlayerInputHandler : MonoBehaviour
     // camera control properity
     public Camera viewCamera;
     public float _cameraAngleX = 0.0f;
-    
+    public float cameraAngleML = 15.1f;
+    public float cameraAngleLL = -20.1f;
     private MovementControl _controller;
 
     private void Start()
@@ -27,7 +28,7 @@ public class PlayerInputHandler : MonoBehaviour
         _controller.Rotate(angle.x*mouseSensitivity);
         
         float deltaAngle = angle.y * mouseSensitivity * -1.0f;
-        if(_cameraAngleX + deltaAngle<15.1f&&_cameraAngleX + deltaAngle>-20.1f)
+        if(_cameraAngleX + deltaAngle<cameraAngleML&&_cameraAngleX + deltaAngle>cameraAngleLL)
         {
             viewCamera.transform.Rotate(angle.y * mouseSensitivity * -1.0f, 0.0f, 0.0f);
             _cameraAngleX += deltaAngle;
@@ -46,6 +47,6 @@ public class PlayerInputHandler : MonoBehaviour
 
     public void Squat(InputAction.CallbackContext callbackContext)
     {
-        _controller.Squat();
+        if(callbackContext.started) _controller.Squat();
     }
 }
