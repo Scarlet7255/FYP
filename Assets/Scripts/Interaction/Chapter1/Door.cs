@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.Events;
+
 public class Door : MonoBehaviour
 {
     public GameObject rotateObject;
@@ -11,16 +13,27 @@ public class Door : MonoBehaviour
     [SerializeField]private bool open = false;
     [SerializeField]private float currentDegree = 0.0f;
 
+    public bool DoorOpen
+    {
+        get { return open && !_rotating; }
+    }
+
+    public UnityEvent<bool> DoorStateChanged;
+
     private void Start()
     {
         if (rotateObject == null) rotateObject = gameObject;
         rotateAxis = rotateAxis.normalized;
     }
 
-    public void ChangeState()
+    public void ChangeState(bool isOpen)
     {
         _rotating = true;
-        open = !open;
+        if (open != isOpen)
+        {
+            _rotating = true;
+            open = isOpen;
+        }
     }
 
     private void FixedUpdate()
@@ -38,6 +51,7 @@ public class Door : MonoBehaviour
             if (rotateDegree + currentDegree > maxRotateDegree)
             {
                 rotateDegree = maxRotateDegree - currentDegree;
+                DoorStateChanged.Invoke(true);
                 _rotating = false;
             }
             rotateObject.transform.Rotate(rotateAxis,rotateDegree);
@@ -48,6 +62,7 @@ public class Door : MonoBehaviour
             if (currentDegree < rotateDegree)
             {
                 rotateDegree = currentDegree;
+                DoorStateChanged.Invoke(false);
                 _rotating = false;
             }
             rotateObject.transform.Rotate(rotateAxis,rotateDegree*-1f);

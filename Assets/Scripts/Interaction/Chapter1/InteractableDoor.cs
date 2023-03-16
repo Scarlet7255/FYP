@@ -7,9 +7,6 @@ public class InteractableDoor : InteractableObject
     public List<Door> doors;
     public override void Action()
     {
-        foreach (var d in doors)
-        {
-            d.ChangeState();
-        }
+
     }
 }

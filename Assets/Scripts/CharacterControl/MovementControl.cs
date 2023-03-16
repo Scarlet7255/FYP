@@ -3,101 +3,75 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
+using UnityEngine.AI;
 
 
-
-[RequireComponent(typeof(CharacterController))]
+[RequireComponent(typeof(NavMeshAgent))]
 [RequireComponent(typeof(Animator))]
 public class MovementControl : MonoBehaviour
 {
-    // basic movement attributes
-    [SerializeReference]private CharacterController Controller;
-    [SerializeField]private float Gravity = -9.81f;
+    // AI agents
+    [SerializeField] private NavMeshAgent navAgent;
+    
+    // control movement
     [SerializeField]private float WalkVelocity = 1.0f;
     [SerializeField]private float RunVelocity = 3f;
     [SerializeField]private float SquatVelocity = 0.8f;
-
 
     // Collider Height Control
     [SerializeField] private float StandHeight;
     [SerializeField] private float SquatHeight;
     [SerializeField] private float CrouchHeight;
-    // record controller collider height and radius basic info 
-    private float _controlCenterY;
     
-    // control collider height when squat
-    [SerializeField]private float _squatY;
-
-    // collide detect for actions
-    [SerializeField] private Transform headDetector;
     
     [SerializeField]private Transform LeftFootIKTarget;
     [SerializeField]private Transform RightFootIKTarget;
     [SerializeField]private Transform LeftHandIKTarget;
     [SerializeField]private Transform RightHandIKTarget;
-    
-    private Vector3 _inputDirection;
-    private Vector3 _velocity;
-    private float _yVelocity;
+
+    private float _speed;
 
     private Animator _animator;
 
-    private bool _moving = false;
     private bool _squat = false;
     private bool _rush = false;
+
+    private bool _onOffMeshLink = false;
+    private Vector3 _offMeshLinkEnd;
     
     #region Game Loop
     private void Start()
     {
-        if (Controller == null) Controller = gameObject.GetComponent<CharacterController>();
+        if (navAgent == null) navAgent = gameObject.GetComponent<NavMeshAgent>();
         _animator = gameObject.GetComponent<Animator>();
-        _controlCenterY = Controller.center.y;
     }
 
     private void FixedUpdate()
     {
-
-        _velocity = transform.forward * _inputDirection.y - transform.right * _inputDirection.x;
-        // walk
-        if (_moving && !_squat)
+        if (!_squat)
         {
             if (!_rush) 
-                _velocity *= WalkVelocity;
+                _speed = WalkVelocity;
             else 
-                _velocity *= RunVelocity;
-            _animator.SetFloat("Speed",_velocity.magnitude);
+                _speed = RunVelocity;
         } 
-        else if (_squat)
-        {
-            if(_moving)
-                _velocity *= SquatVelocity;
-            _animator.SetFloat("Speed",_velocity.magnitude);
-        }
-
-        // Gravity Effect
-        if (Controller.isGrounded)
-        {
-            _yVelocity = 0f;
-        }
-        else
-            _yVelocity += Gravity;
-        _velocity.y = _yVelocity;
-        Controller.Move(_velocity*Time.fixedDeltaTime);
+        else if (_squat) 
+            _speed = SquatVelocity;
+        
+        navAgent.speed = _speed;
+        _animator.SetFloat("Speed",navAgent.velocity.magnitude);
+        //transform.forward = Vector3.Lerp(transform.forward, navAgent.velocity.normalized,RotateSpeed*Time.fixedDeltaTime);
+        if (navAgent.velocity.magnitude < 0.1f) _rush = false;
+        
+        if(_onOffMeshLink) MoveNormalSpeedOnOffMesh();
     }
 
     #endregion
 
     #region  Movement Action
-
-    public void Rotate(float degreeX)
+    public void Move(Vector3 target)
     {
-        transform.Rotate(transform.up,degreeX);
-    }
-
-    public void Move(Vector2 direction)
-    {
-        _moving = true;
-        _inputDirection = direction;
+        navAgent.destination = target;
     }
 
     public void Rush(bool isRush)
@@ -108,35 +82,32 @@ public class MovementControl : MonoBehaviour
     
     public void Squat()
     {
-        if (!_squat) _squat = true;
-        else
-        {
-            RaycastHit hitInfo;
-            Physics.Raycast(transform.position + Controller.center, Vector3.up,out hitInfo,
-                StandHeight - SquatHeight,LayerMask.GetMask("Obstacle"));
-            _squat = hitInfo.collider;
-        }
+        _squat = !_squat;
 
         _animator.SetBool("Squat",_squat);
-        if (_squat)
-        {
-            Vector3 center = Controller.center;
-            center.y = _squatY;
-            Controller.center = center;
-            Controller.height = SquatHeight;
-        }
+        
+        if (_squat) 
+            navAgent.height = SquatHeight;
         else
-        {
-            Vector3 center = Controller.center;
-            center.y = _controlCenterY;
-            Controller.center = center;
-            Controller.height = StandHeight;
-        }
+            navAgent.height = StandHeight;
+        
     }
 
-    void DrawLine()
+    public void CompleteOffMeshLinkNormalSpeed(Vector3 target)
     {
-        
+        _onOffMeshLink = true;
+        _offMeshLinkEnd = target;
+    }
+
+    private void MoveNormalSpeedOnOffMesh()
+    {
+        transform.position = Vector3.MoveTowards(transform.position, _offMeshLinkEnd, _speed * Time.fixedDeltaTime);
+        if (transform.position == _offMeshLinkEnd)
+        {
+            _onOffMeshLink = false;
+            navAgent.CompleteOffMeshLink();
+        }
+        _animator.SetFloat("Speed",_speed);
     }
 
     #endregion
