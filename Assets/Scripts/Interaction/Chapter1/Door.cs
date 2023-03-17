@@ -9,7 +9,6 @@ public class Door : MonoBehaviour
     public float maxRotateDegree = 90.0f;
     
     private bool _rotating = false;
-    public Collider targetCollider;
     [SerializeField]private bool open = false;
     [SerializeField]private float currentDegree = 0.0f;
 
@@ -38,13 +37,6 @@ public class Door : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!_rotating && targetCollider)
-        {
-            targetCollider.enabled = true;
-            return;
-        }
-
-        if(targetCollider) targetCollider.enabled = false;
         float rotateDegree = rotateSpeed*Time.fixedDeltaTime;
         if (open)
         {

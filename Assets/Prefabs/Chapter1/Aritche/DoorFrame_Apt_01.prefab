@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1805658184958461953}
   m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.92, y: 0, z: 0.1}
+  m_LocalPosition: {x: -0.92, y: 0, z: -0.009}
   m_LocalScale: {x: 1.2222216, y: 1.25, z: 1.2222216}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -247,6 +247,8 @@ GameObject:
   - component: {fileID: 4304958103989590115}
   - component: {fileID: 8867661732283309001}
   - component: {fileID: 2269074539912189794}
+  - component: {fileID: 7843794421136245128}
+  - component: {fileID: 8428220681669541628}
   m_Layer: 0
   m_Name: Door
   m_TagString: Interactable
@@ -349,7 +351,6 @@ MonoBehaviour:
   rotateAxis: {x: 0, y: 1, z: 0}
   rotateSpeed: 350
   maxRotateDegree: 90
-  targetCollider: {fileID: 4304958103989590115}
   open: 0
   currentDegree: 0
   DoorStateChanged:
@@ -395,6 +396,44 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: -0.043, y: 0.057000004, z: 0.711}
   m_TimeToStationary: 0.5
+--- !u!114 &7843794421136245128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4729591624460236428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
+--- !u!114 &8428220681669541628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4729591624460236428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5001ddd56fcee3d4ea653ed75ed9b66c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  iconPath: UI/TipIcon
+  _outline: {fileID: 0}
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 4
+  mode: 0
+  icon: {fileID: 0}
+  doors:
+  - {fileID: 8867661732283309001}
 --- !u!1 &7621771711794909680
 GameObject:
   m_ObjectHideFlags: 0
@@ -421,7 +460,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7621771711794909680}
   m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -1.5, y: 0, z: -0.05}
+  m_LocalPosition: {x: -1.238, y: 0, z: -0.05}
   m_LocalScale: {x: 1.2222216, y: 1.25, z: 1.2222216}
   m_ConstrainProportionsScale: 0
   m_Children: []

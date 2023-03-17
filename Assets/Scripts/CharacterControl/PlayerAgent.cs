@@ -10,6 +10,12 @@ public class PlayerAgent : MonoBehaviour
     public NavMeshAgent navAgent;
     private bool _waitForDoor;
     private Door _waitDoor;
+    private Vector3 _target;
+
+    private void Start()
+    {
+        GameManger.Instance.Player = this;
+    }
 
     private void Update()
     {
@@ -32,9 +38,17 @@ public class PlayerAgent : MonoBehaviour
         }
     }
 
-    public void Move(RaycastHit hitInfo)
+    public void SneakBelow(Vector3 position)
     {
-        moveAgent.Move(hitInfo.point);
+        moveAgent.Squat();
+        Debug.Log(navAgent.areaMask);
+    }
+
+    public void Move(Vector3 position)
+    {
+        
+        _target = position;
+        moveAgent.Move(position);
     }
     
       

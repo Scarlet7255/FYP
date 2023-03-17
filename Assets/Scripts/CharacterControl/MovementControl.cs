@@ -5,6 +5,10 @@ using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 using UnityEngine.AI;
 
+public enum MovementState
+{
+    Stand, Squat, Run
+}
 
 [RequireComponent(typeof(NavMeshAgent))]
 [RequireComponent(typeof(Animator))]
@@ -101,7 +105,9 @@ public class MovementControl : MonoBehaviour
 
     private void MoveNormalSpeedOnOffMesh()
     {
-        transform.position = Vector3.MoveTowards(transform.position, _offMeshLinkEnd, _speed * Time.fixedDeltaTime);
+        navAgent.Move(Vector3.MoveTowards(transform.position, _offMeshLinkEnd, _speed * Time.fixedDeltaTime)
+        - transform.position);
+        //transform.forward = Vector3.Lerp(transform.forward, (_offMeshLinkEnd - transform.position).normalized, 0.8f);
         if (transform.position == _offMeshLinkEnd)
         {
             _onOffMeshLink = false;
