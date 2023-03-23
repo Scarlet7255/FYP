@@ -7,7 +7,7 @@ public class DoorDetector : MonoBehaviour
 {
     public Animator animator;
     public Collider interactionTrigger;
-    
+    public CharacterAgent agent;
     private void Start()
     {
         Physics.IgnoreCollision(interactionTrigger,gameObject.GetComponent<Collider>());
@@ -15,11 +15,13 @@ public class DoorDetector : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     { 
-        Debug.Log(other.gameObject.name);
         if (other.gameObject.tag.Equals("Door"))
         {
             animator.SetLayerWeight(2,1.0f);
             animator.Play("Opening");
+            InteractableDoor door = other.GetComponent<InteractableDoor>();
+            door.source = agent;
+            door.Open();
         }
     }
     

@@ -20,7 +20,7 @@ public class PlayerAgentOld : MonoBehaviour
     private GameObject _offLinkOwner;
     
     private bool _waiting;
-    private InteractableDoor _waitDoor;
+    //private InteractableDoor _waitDoor;
     
     public PlayerState playerState { get; private set; } = PlayerState.Investigate;
     
@@ -63,12 +63,15 @@ public class PlayerAgentOld : MonoBehaviour
     private void OnOffMeshLink()
     {
         _offLinkOwner = navAgent.currentOffMeshLinkData.offMeshLink.gameObject;
+        /*
         if(_offLinkOwner.tag.Equals("Door Entry"))
             EnterClosedDoor();
         else if(_offLinkOwner.tag.Equals("Stash Point"))
             navAgent.CompleteOffMeshLink();
+        */
     }
 
+    /*
     private void EnterClosedDoor()
     {
         if (!_waitDoor)

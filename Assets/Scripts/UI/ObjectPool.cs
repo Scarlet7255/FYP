@@ -28,6 +28,7 @@ public class ObjectPool : MonoBehaviour
     
     public void Put(string objName, GameObject obj)
     {
+        if (!obj) return;
         obj.SetActive(false);
         if (!_objDic.ContainsKey(objName))
         {

@@ -21,6 +21,7 @@ namespace TheKiwiCoder {
         public CapsuleCollider capsuleCollider;
         public CharacterController characterController;
         public BehaviourTreeRunner treeRunner;
+        public CharacterAgent mainAgent;
 
         public MovementControl moveAgent;
         // Add other game specific systems here
@@ -39,6 +40,7 @@ namespace TheKiwiCoder {
             context.characterController = gameObject.GetComponent<CharacterController>();
             context.treeRunner = gameObject.GetComponent<BehaviourTreeRunner>();
             context.moveAgent = gameObject.GetComponent<MovementControl>();
+            context.mainAgent = gameObject.GetComponent<CharacterAgent>();
             // Add whatever else you need here...
 
             return context;

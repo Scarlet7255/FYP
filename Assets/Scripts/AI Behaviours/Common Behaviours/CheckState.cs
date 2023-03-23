@@ -1,12 +1,16 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TheKiwiCoder;
-public class OpenTheDoor : ActionNode
+public class CheckState : ActionNode
 {
+    public CharacterState CharacterStatestate;
+    public State equalState;
+    public State falseState;
+    
     protected override void OnStart()
     {
-        (blackboard.interactionTarget as InteractableDoor).Open();
     }
 
     protected override void OnStop()
@@ -15,6 +19,6 @@ public class OpenTheDoor : ActionNode
 
     protected override State OnUpdate()
     {
-        return State.Success;
+        return CharacterStatestate == context.mainAgent.CurrentState ? equalState : falseState;
     }
 }

@@ -305,6 +305,7 @@ MonoBehaviour:
   outlineWidth: 4
   mode: 0
   icon: {fileID: 0}
+  source: {fileID: 0}
   doors:
   - {fileID: 8382263436255021576}
 --- !u!114 &8382263436255021576
@@ -322,18 +323,9 @@ MonoBehaviour:
   rotateObject: {fileID: 0}
   rotateAxis: {x: 0, y: 1, z: 0}
   rotateSpeed: 350
-  maxRotateDegree: 90
-  open: 0
-  currentDegree: 0
-  DoorStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  OnRotateStart:
-    m_PersistentCalls:
-      m_Calls: []
-  OnRotateEnd:
-    m_PersistentCalls:
-      m_Calls: []
+  targetAngle: 0
+  _currentAngle: 0
+  obstacle: {fileID: 3033553330300771887}
 --- !u!208 &3033553330300771887
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -346,7 +338,7 @@ NavMeshObstacle:
   m_Shape: 1
   m_Extents: {x: 0.043, y: 1.419, z: 0.71300006}
   m_MoveThreshold: 0.1
-  m_Carve: 0
+  m_Carve: 1
   m_CarveOnlyStationary: 1
   m_Center: {x: -0.043, y: 0.057000004, z: 0.711}
   m_TimeToStationary: 0.5

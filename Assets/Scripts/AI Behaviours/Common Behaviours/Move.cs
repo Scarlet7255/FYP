@@ -34,6 +34,6 @@ public class Move : ActionNode
             Debug.LogFormat("{0}: I can not get there",context.gameObject.name);
         }
 
-        return State.Success;
+        return _navMeshAgent.hasPath? State.Running:State.Success;
     }
 }

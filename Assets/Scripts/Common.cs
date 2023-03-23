@@ -1,4 +1,5 @@
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,27 +17,36 @@ public class Common
     public static bool UniformInterpolationInValue(float boundary, float currentValue, float expectedDelta, out float deltaValue)
     {
         deltaValue = 0.0f;
-        if (expectedDelta == 0) return true;
-        if (expectedDelta < 0)
+        if (currentValue == boundary) return true;
+        if (currentValue < boundary)
         {
-            if (expectedDelta < boundary - currentValue)
+            expectedDelta = MathF.Abs(expectedDelta);
+
+            if (expectedDelta + currentValue < boundary) deltaValue = expectedDelta;
+            else
             {
                 deltaValue = boundary - currentValue;
                 return true;
             }
-            deltaValue = expectedDelta;
         }
 
-        if (expectedDelta > 0)
+        if (currentValue > boundary)
         {
-            if (expectedDelta > boundary - currentValue)
+            expectedDelta = -MathF.Abs(expectedDelta);
+
+            if (expectedDelta + currentValue > boundary) deltaValue = expectedDelta;
+            else
             {
                 deltaValue = boundary - currentValue;
                 return true;
             }
-            deltaValue = expectedDelta;
         }
 
         return false;
+    }
+
+    public static float Lerp(float a, float b, float lerpSale)
+    {
+        return a + (1-lerpSale)*b;
     }
 }

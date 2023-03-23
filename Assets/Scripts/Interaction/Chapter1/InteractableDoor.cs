@@ -6,45 +6,55 @@ using UnityEngine;
 public class InteractableDoor : InteractableObject
 {
     public List<Door> doors;
-    public bool allOpen { get; private set; } = false;
-
-    public bool isAllOpen()
-    {
-        foreach (var v in doors)
+    public bool AllOpen {
+        get
         {
-            if (!v.DoorOpen) return false;
-        }
+            foreach (var d in doors)
+            {
+                if (d.Close) return false;
+            }
 
-        return true;
+            return true;
+        }
     }
 
-    public override void Action()
+    public override void Action(CharacterAgent _source)
     {
-        allOpen = true;
-        foreach (var v in doors)
-        {
-            v.ChangeState(!v.DoorOpen);
-            allOpen = allOpen && v.DoorOpen;
-        }
+        source = _source;
+        if(AllOpen) Close();
+        else Open();
     }
     
-    public void Open()
+    public virtual void Open()
     {
-        allOpen = true;
-        foreach (var v in doors)
+        if (AllOpen) return;
+        if (source)
         {
-            v.ChangeState(true);
-            allOpen = allOpen && v.DoorOpen;
+            float dot = Vector3.Dot(source.transform.position-transform.position, transform.right);
+            float target = 0.0f;
+            if (dot > 0)
+                target = -90;
+            else
+                target = 90f;
+            foreach (var d in doors)
+            {
+                d.targetAngle = target;
+            }
+        }
+        else
+        {
+            foreach (var d in doors)
+            {
+                d.targetAngle = 90f;
+            }
         }
     }
 
-    public void Close()
+    public virtual void Close()
     {
-        allOpen = false;
-        foreach (var v in doors)
+        foreach (var d in doors)
         {
-            v.ChangeState(false);
-            allOpen = allOpen && v.DoorOpen;
+            d.targetAngle = 0f;
         }
     }
 

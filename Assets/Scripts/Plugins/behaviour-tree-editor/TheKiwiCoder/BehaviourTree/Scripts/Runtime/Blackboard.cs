@@ -14,5 +14,6 @@ namespace TheKiwiCoder {
         public ViewDetector eye;
         public Transform target;
         public Vector3 destination;
+        public CharacterState state;
     }
 }

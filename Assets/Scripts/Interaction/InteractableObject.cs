@@ -16,6 +16,7 @@ using UnityEngine;
         [SerializeField] private Outline.Mode mode;
     
         public GameObject icon;
+        public CharacterAgent source;
         private void Awake()
         {
             _outline = gameObject.GetComponent<Outline>();
@@ -48,14 +49,14 @@ using UnityEngine;
             icon = null;
         }
     
-        public abstract void Action();
+        public abstract void Action(CharacterAgent source);
     
-        private void OnTriggerStay(Collider other)
+        protected virtual void OnTriggerStay(Collider other)
         {
             if(other.tag.Equals("Player")) Select();
         }
     
-        private void OnTriggerExit(Collider other)
+        protected virtual void OnTriggerExit(Collider other)
         {
             if (other.tag.Equals("Player"))
             {

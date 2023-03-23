@@ -15,6 +15,6 @@ public class TipIcon : MonoBehaviour
 
     public void Interact()
     {
-        interactObj.Action();
+        interactObj.Action(GameManger.Instance.Player);
     }
 }

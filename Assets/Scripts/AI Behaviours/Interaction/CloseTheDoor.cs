@@ -6,8 +6,8 @@ public class CloseTheDoor : ActionNode
 {
     protected override void OnStart()
     {
-        InteractableDoor d = blackboard.interactionTarget as InteractableDoor;
-        d.Close();
+        InteractableDoor door = blackboard.interactionTarget as InteractableDoor;
+        door.Close();
     }
 
     protected override void OnStop()

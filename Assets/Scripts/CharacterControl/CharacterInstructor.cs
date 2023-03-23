@@ -17,8 +17,11 @@ public class CharacterInstructor : MonoBehaviour
             RaycastHit hitInfo;
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hitInfo, 100f,selectableLayer))
             {
-                if((1<<hitInfo.collider.gameObject.layer & validLayers)>0)
+                if ((1 << hitInfo.collider.gameObject.layer & validLayers) > 0)
+                {
                     player.Move(hitInfo.point);
+                    player.CurrentState = CharacterState.Walk;
+                }
                 else Debug.Log("INVALID MOVEMENT");
             }
             else Debug.Log("INVALID MOVEMENT");
