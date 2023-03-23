@@ -1,1 +1,0 @@
-https://sketchfab.com/3d-models/lowpoly-sunflower-d8f3585482944774be1de8a03a7375cd#download
