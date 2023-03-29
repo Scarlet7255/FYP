@@ -22,7 +22,7 @@ public class Move : ActionNode
     protected override State OnUpdate()
     {
         _navMeshAgent.CalculatePath(blackboard.destination,_path);
-
+        if(_navMeshAgent.isPathStale) Debug.Log("Path stale");
         if (_navMeshAgent.pathStatus == NavMeshPathStatus.PathComplete)
         {
             _navMeshAgent.path = _path;

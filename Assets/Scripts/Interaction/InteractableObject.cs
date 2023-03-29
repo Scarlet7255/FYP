@@ -14,9 +14,10 @@ using UnityEngine;
         [SerializeField] private Color outlineColor = Color.white;
         [SerializeField] private float outlineWidth = 4.0f;
         [SerializeField] private Outline.Mode mode;
-    
-        public GameObject icon;
-        public CharacterAgent source;
+        public Sprite iconSprite;
+        
+        [HideInInspector]public GameObject icon;
+        [HideInInspector]public CharacterAgent source;
         private void Awake()
         {
             _outline = gameObject.GetComponent<Outline>();
@@ -36,10 +37,9 @@ using UnityEngine;
             if(icon) return;
             _outline.enabled = true;
                 icon = ObjectPool.Instance.Take(iconPath);
-                icon.SetActive(true);
                 icon.transform.SetParent(UIManager.Instance.tipObjPanel.transform);
-                icon.GetComponent<TipIcon>().interactObj = this;
-                
+                icon.GetComponent<TipIcon>().SetIconInfo(this,iconSprite);
+                icon.SetActive(true);
         }
     
         public void LostFocus()

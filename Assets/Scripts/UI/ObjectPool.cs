@@ -53,6 +53,7 @@ public class ObjectPool : MonoBehaviour
             _stringBuilder.Append(objName);
             GameObject o = Resources.Load<GameObject>(_stringBuilder.ToString());
             o = Instantiate(o);
+            o.SetActive(false);
             o.name = objName;
             _stringBuilder.Remove(_prefixL, _stringBuilder.Length-_prefixL);
             return o;

@@ -24,6 +24,8 @@ public class CharacterAgent : MonoBehaviour
     public Transform LeftHandIK;
     public Transform RightHandIK;
 
+    public CharacterState iniState;
+
     public CharacterState CurrentState
     {
         get => treeRunner.blackboard.state;
@@ -33,13 +35,15 @@ public class CharacterAgent : MonoBehaviour
     public void Awake()
     {
         treeRunner.blackboard.destination = transform.position;
-        if (!navAgent) navAgent = gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>();
+        if (!navAgent) navAgent = gameObject.GetComponent<NavMeshAgent>();
         if (!treeRunner) treeRunner = gameObject.GetComponent<BehaviourTreeRunner>();
         if (!animator) animator = gameObject.GetComponent<Animator>();
+        CurrentState = iniState; 
     }
 
     public void Move(Vector3 des)
     {
+        treeRunner.enabled = true;
         treeRunner.blackboard.destination = des;
     }
 

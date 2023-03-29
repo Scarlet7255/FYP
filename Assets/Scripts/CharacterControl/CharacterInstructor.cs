@@ -9,9 +9,16 @@ public class CharacterInstructor : MonoBehaviour
     public PlayerAgent player;
     public LayerMask validLayers;
     public LayerMask selectableLayer;
-    
+
+    public bool enableInput
+    {
+        get;
+        set;
+    } = true;
+
     public void Select(InputAction.CallbackContext cbc)
     {
+        if (!enableInput) return;
         if (cbc.performed)
         {
             RaycastHit hitInfo;
@@ -27,4 +34,6 @@ public class CharacterInstructor : MonoBehaviour
             else Debug.Log("INVALID MOVEMENT");
         }
     }
+    
+    
 }

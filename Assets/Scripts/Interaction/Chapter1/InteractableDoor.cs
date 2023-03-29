@@ -6,12 +6,26 @@ using UnityEngine;
 public class InteractableDoor : InteractableObject
 {
     public List<Door> doors;
+    public DoorLock doorLock;
+    
     public bool AllOpen {
         get
         {
             foreach (var d in doors)
             {
                 if (d.Close) return false;
+            }
+
+            return true;
+        }
+    }
+    
+    public bool AllClose{
+        get
+        {
+            foreach (var d in doors)
+            {
+                if (d.Open) return false;
             }
 
             return true;
@@ -28,6 +42,7 @@ public class InteractableDoor : InteractableObject
     public virtual void Open()
     {
         if (AllOpen) return;
+        if (doorLock && doorLock.locked) return;
         if (source)
         {
             float dot = Vector3.Dot(source.transform.position-transform.position, transform.right);

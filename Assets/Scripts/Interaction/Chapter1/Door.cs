@@ -45,6 +45,7 @@ public class Door : MonoBehaviour
         if (obstacle)
         {
             if (Open) obstacle.enabled = true;
+            else if (Close) obstacle.enabled = _isLock;
             else obstacle.enabled = false;
         }
     }
