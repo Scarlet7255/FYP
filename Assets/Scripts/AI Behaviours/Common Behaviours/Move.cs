@@ -6,8 +6,8 @@ using UnityEngine.AI;
 
 public class Move : ActionNode
 {
-    private NavMeshAgent _navMeshAgent;
-    private NavMeshPath _path;
+    protected NavMeshAgent _navMeshAgent;
+    protected NavMeshPath _path;
     protected override void OnStart()
     {
         _navMeshAgent = context.agent;
@@ -21,6 +21,13 @@ public class Move : ActionNode
 
     protected override State OnUpdate()
     {
+        if (blackboard.runningAbortFlag)
+        {
+            blackboard.runningAbortFlag = false;
+            _navMeshAgent.ResetPath();
+            return State.Failure;
+        }
+
         _navMeshAgent.CalculatePath(blackboard.destination,_path);
         if(_navMeshAgent.isPathStale) Debug.Log("Path stale");
         if (_navMeshAgent.pathStatus == NavMeshPathStatus.PathComplete)
@@ -33,7 +40,7 @@ public class Move : ActionNode
             blackboard.destination = context.transform.position;
             Debug.LogFormat("{0}: I can not get there",context.gameObject.name);
         }
-
+        
         return _navMeshAgent.hasPath? State.Running:State.Success;
     }
 }

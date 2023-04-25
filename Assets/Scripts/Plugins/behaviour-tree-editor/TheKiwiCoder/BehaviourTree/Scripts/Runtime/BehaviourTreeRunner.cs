@@ -12,27 +12,9 @@ namespace TheKiwiCoder {
 
         // Storage container object to hold game object subsystems
         public Context context;
-        public Blackboard blackboard = new Blackboard();
         private Dictionary<string, BehaviourTree> _treeDic;
-
-        // Start is called before the first frame update
-        void Awake() {
-            context = CreateBehaviourTreeContext();
-            _treeDic = new Dictionary<string, BehaviourTree>();
-        }
+        public Blackboard blackboard => tree.blackboard;
         
-        private void OnEnable()
-        {
-            if (tree && !_treeDic.ContainsKey(tree.name))
-            {
-                var nt = tree.Clone();
-                nt.name = tree.name;
-                _treeDic.Add(tree.name,nt);
-                tree = nt;
-            }
-            tree.Bind(context,blackboard);
-        }
-
         public void ChangeTree(BehaviourTree nTree)
         {
             if (!_treeDic.ContainsKey(nTree.name))
@@ -48,7 +30,33 @@ namespace TheKiwiCoder {
             }
         }
         
+        public void ChangeStrategy(AIStrategy strategy)
+        {
+            tree.blackboard.strategy = strategy;
+            tree.Bind(context,tree.blackboard);
+        }
+        
 
+        #region GameLoop
+
+        void Awake() {
+            context = CreateBehaviourTreeContext();
+            _treeDic = new Dictionary<string, BehaviourTree>();
+        }
+        
+        private void OnEnable()
+        {
+            if (tree && !_treeDic.ContainsKey(tree.name))
+            {
+                var nt = tree.Clone();
+                nt.name = tree.name;
+                _treeDic.Add(tree.name,nt);
+                tree = nt;
+            }
+            tree.Bind(context,tree.blackboard);
+        }
+        
+        
         // Update is called once per frame
         void Update() {
             if (tree) {
@@ -71,5 +79,7 @@ namespace TheKiwiCoder {
                 }
             });
         }
+
+        #endregion
     }
 }

@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
+using UnityEngine.SceneManagement;
 
 public enum DirctorInstruct{
-    StopDisplay, WaitForSignal,Loop
+    StopDisplay, WaitForSignal,Loop, GameRestart, ToMainMenu
 }
 
 public class DirectorControlTemplete : PlayableAsset
@@ -44,6 +45,16 @@ public class DirectorControlTempleteBehaviour : PlayableBehaviour
                 startTime = director.time;
                 break;
             }
+            case DirctorInstruct.GameRestart:
+            {
+                GameManger.Instance.OnGameRestart.Invoke();
+                break;
+            }
+            case DirctorInstruct.ToMainMenu:
+            {
+                SceneManager.LoadScene(0);
+                break;
+            }
         }
     }
 
@@ -59,5 +70,6 @@ public class DirectorControlTempleteBehaviour : PlayableBehaviour
             }
         }
     }
+    
     
 }

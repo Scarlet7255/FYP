@@ -18,6 +18,7 @@ using UnityEngine;
         
         [HideInInspector]public GameObject icon;
         [HideInInspector]public CharacterAgent source;
+        public bool selectable = true;
         private void Awake()
         {
             _outline = gameObject.GetComponent<Outline>();
@@ -34,7 +35,7 @@ using UnityEngine;
     
         public void Select()
         {
-            if(icon) return;
+            if(icon || !selectable) return;
             _outline.enabled = true;
                 icon = ObjectPool.Instance.Take(iconPath);
                 icon.transform.SetParent(UIManager.Instance.tipObjPanel.transform);
@@ -51,17 +52,22 @@ using UnityEngine;
     
         public abstract void Action(CharacterAgent source);
     
-        protected virtual void OnTriggerStay(Collider other)
+        protected void OnTriggerStay(Collider other)
         {
-            if(other.tag.Equals("Player")) Select();
+            if(other.tag.Equals("Player") || other.tag.Equals("Detector")) Select();
         }
     
         protected virtual void OnTriggerExit(Collider other)
         {
-            if (other.tag.Equals("Player"))
+            if (other.tag.Equals("Player")||other.tag.Equals("Detector"))
             {
                 LostFocus();
             }
+        }
+
+        protected void OnDisable()
+        {
+            LostFocus();
         }
     }
 

@@ -15,7 +15,8 @@ public class CharacterAgent : MonoBehaviour
     public BehaviourTreeRunner treeRunner;
     public NavMeshAgent navAgent;
     public Animator animator;
-
+    public AutoDoorDetector doorDetector;
+    
     public InteractableObject interactable
     {
         set => treeRunner.blackboard.interactionTarget = value;
@@ -26,13 +27,13 @@ public class CharacterAgent : MonoBehaviour
 
     public CharacterState iniState;
 
-    public CharacterState CurrentState
+    public virtual CharacterState CurrentState
     {
         get => treeRunner.blackboard.state;
         set => treeRunner.blackboard.state = value;
     }
 
-    public void Awake()
+    protected virtual void Awake()
     {
         treeRunner.blackboard.destination = transform.position;
         if (!navAgent) navAgent = gameObject.GetComponent<NavMeshAgent>();
@@ -47,7 +48,12 @@ public class CharacterAgent : MonoBehaviour
         treeRunner.blackboard.destination = des;
     }
 
-    private void Update()
+    public void AbortCurrentAction()
+    {
+        treeRunner.blackboard.runningAbortFlag = true;
+    }
+
+    protected virtual void Update()
     {
         animator.SetFloat("Speed",navAgent.velocity.magnitude);
     }

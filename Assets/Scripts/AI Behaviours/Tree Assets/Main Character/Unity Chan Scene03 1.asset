@@ -1,0 +1,133 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8297136883338984980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afb5496e8cd973748a10b3e3ef436ebd, type: 3}
+  m_Name: Repeat
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: ea634a3869a690948b3341ada097b888
+  position: {x: -1.9999247, y: -7.3332853}
+  blackboard:
+    interactionTarget: {fileID: 0}
+    eye: {fileID: 0}
+    target: {fileID: 0}
+    destination: {x: 0, y: 0, z: 0}
+    state: 0
+    strategy: 0
+    searchDirection: {x: 0, y: 0, z: 0}
+    area: 
+    targetName: 
+    seeTarget: 0
+    runningAbortFlag: 0
+    plotName: 
+  description: 
+  drawGizmos: 0
+  child: {fileID: -6308187249397813460}
+  restartOnSuccess: 1
+  restartOnFailure: 1
+--- !u!114 &-6308187249397813460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bae974160db2fcd4ca77d5290df2136f, type: 3}
+  m_Name: Follow
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 85536d9c83804e64badd990d71d7e68b
+  position: {x: -1.9999237, y: 140.33134}
+  blackboard:
+    interactionTarget: {fileID: 0}
+    eye: {fileID: 0}
+    target: {fileID: 0}
+    destination: {x: 0, y: 0, z: 0}
+    state: 0
+    strategy: 0
+    searchDirection: {x: 0, y: 0, z: 0}
+    area: 
+    targetName: 
+    seeTarget: 0
+    runningAbortFlag: 0
+    plotName: 
+  description: 
+  drawGizmos: 0
+  stopDistance: 1
+  chasingDistance: 4
+  followPlayer: 1
+--- !u!114 &-759638681169367093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 163c147d123e4a945b688eddc64e3ea5, type: 3}
+  m_Name: RootNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: a0b87883409eb2946be9e2e5520d1e2c
+  position: {x: -2, y: -145}
+  blackboard:
+    interactionTarget: {fileID: 0}
+    eye: {fileID: 0}
+    target: {fileID: 0}
+    destination: {x: 0, y: 0, z: 0}
+    state: 0
+    strategy: 0
+    searchDirection: {x: 0, y: 0, z: 0}
+    area: 
+    targetName: 
+    seeTarget: 0
+    runningAbortFlag: 0
+    plotName: 
+  description: 
+  drawGizmos: 0
+  child: {fileID: -8297136883338984980}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d285eb63c2cdd74180de7cfceaa96ad, type: 3}
+  m_Name: Unity Chan Scene03 1
+  m_EditorClassIdentifier: 
+  rootNode: {fileID: -759638681169367093}
+  treeState: 0
+  nodes:
+  - {fileID: -759638681169367093}
+  - {fileID: -8297136883338984980}
+  - {fileID: -6308187249397813460}
+  blackboard:
+    interactionTarget: {fileID: 0}
+    eye: {fileID: 0}
+    target: {fileID: 0}
+    destination: {x: 122.41201, y: 0, z: 102.972}
+    state: 0
+    strategy: 0
+    searchDirection: {x: 0, y: 0, z: 0}
+    area: 
+    targetName: 
+    seeTarget: 0
+    runningAbortFlag: 0
+    plotName: 03_0

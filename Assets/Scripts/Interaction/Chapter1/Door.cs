@@ -16,7 +16,7 @@ public class Door : MonoBehaviour
     public bool Close => (_currentAngle == targetAngle) && targetAngle == 0;
     public bool Open => (_currentAngle == targetAngle) && targetAngle != 0;
 
-    private bool _isLock = false;
+    [SerializeReference]private bool _isLock = false;
     public bool Lock
     {
         get

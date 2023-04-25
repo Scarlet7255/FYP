@@ -67,6 +67,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Main Menu",
+                    "type": "Button",
+                    "id": "5681fda2-5c34-4772-aacc-78318b129ba6",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -210,6 +219,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Select",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0918b9fb-368e-48b6-8cc6-35acdc6b335a",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "Tap",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Main Menu",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

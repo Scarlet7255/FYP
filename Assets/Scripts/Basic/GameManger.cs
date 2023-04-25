@@ -1,7 +1,7 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class GameManger : MonoBehaviour
 {
@@ -14,10 +14,30 @@ public class GameManger : MonoBehaviour
     #endregion
 
     public PlayerAgent Player;
-    
+    public UnityEvent OnGameRestart;
+    public GameObject MainMenu;
+
     private void Awake()
     {
         _instance = this;
-        DontDestroyOnLoad(gameObject);
+    }
+
+    public void RestartGame()
+    {
+        OnGameRestart.Invoke();
+    }
+
+    public void NextScene()
+    {
+        int sceneIdx = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(++sceneIdx);
+    }
+
+    /// <summary>
+    /// lazy dog action
+    /// </summary>
+    public void ReloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

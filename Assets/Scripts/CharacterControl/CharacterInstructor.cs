@@ -10,15 +10,24 @@ public class CharacterInstructor : MonoBehaviour
     public LayerMask validLayers;
     public LayerMask selectableLayer;
 
-    public bool enableInput
+    private bool _enableInput;
+    public bool EnableInput
     {
-        get;
-        set;
-    } = true;
+        get=> _enableInput;
+        set
+        {
+            _enableInput = value;
+            if (_enableInput)
+            {
+                player.Move(transform.position);
+                
+            }
+        }
+    }
 
     public void Select(InputAction.CallbackContext cbc)
     {
-        if (!enableInput) return;
+        if (!_enableInput) return;
         if (cbc.performed)
         {
             RaycastHit hitInfo;

@@ -1,5 +1,4 @@
-using System;
-using System.Collections;
+
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,7 +13,6 @@ public class ObjectPool : MonoBehaviour
     {
         get
         {
-            if (!_instance) _instance = new GameObject("ObjectPool").AddComponent<ObjectPool>();
             return _instance;
         }
     }
@@ -65,7 +63,6 @@ public class ObjectPool : MonoBehaviour
         if (!_instance)
         {
             _instance = this;
-            DontDestroyOnLoad(this);
         }
         else Destroy(this);
 

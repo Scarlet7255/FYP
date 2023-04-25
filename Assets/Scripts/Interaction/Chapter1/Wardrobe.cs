@@ -22,6 +22,18 @@ public class Wardrobe : InteractableDoor
         R.targetAngle = 0f;
     }
 
+    public void OnTriggerStay(Collider other)
+    {
+        if (other.tag.Equals("Player"))
+        {
+            if(Common.IsFront(other.transform.position, transform.position, hidePlace.forward, 0.7f))
+                Select();
+            else
+                LostFocus();
+        }
+        
+    }
+
     public override void Action(CharacterAgent _source)
     {
         Open();

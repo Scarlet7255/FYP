@@ -1,0 +1,269 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8442974765543755363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5840e014f1ccacf48ae555fab9a383c8, type: 3}
+  m_Name: AISetDestination
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: e22bcef830846a4478ae7ad743bcefc4
+  position: {x: -213.33337, y: 430}
+  blackboard:
+    interactionTarget: {fileID: 0}
+    eye: {fileID: 0}
+    target: {fileID: 0}
+    destination: {x: 0, y: 0, z: 0}
+    state: 0
+    strategy: 0
+    searchDirection: {x: 0, y: 0, z: 0}
+    area: 
+    targetName: 
+    seeTarget: 0
+    runningAbortFlag: 0
+    plotName: 
+  description: 
+  drawGizmos: 0
+  destination: {x: 130.03087, y: 0, z: 98.246994}
+--- !u!114 &-8297136883338984980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afb5496e8cd973748a10b3e3ef436ebd, type: 3}
+  m_Name: Repeat
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: ea634a3869a690948b3341ada097b888
+  position: {x: -1.9999809, y: -7.4592533}
+  blackboard:
+    interactionTarget: {fileID: 0}
+    eye: {fileID: 0}
+    target: {fileID: 0}
+    destination: {x: 0, y: 0, z: 0}
+    state: 0
+    strategy: 0
+    searchDirection: {x: 0, y: 0, z: 0}
+    area: 
+    targetName: 
+    seeTarget: 0
+    runningAbortFlag: 0
+    plotName: 
+  description: 
+  drawGizmos: 0
+  child: {fileID: 4920036797016598529}
+  restartOnSuccess: 1
+  restartOnFailure: 1
+--- !u!114 &-7019895567591737915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61431bba79d7d7843b82bf1de71703f5, type: 3}
+  m_Name: Sequencer
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: fd40820b62bd8dd4db0541f833175c45
+  position: {x: -213.33331, y: 276.04544}
+  blackboard:
+    interactionTarget: {fileID: 0}
+    eye: {fileID: 0}
+    target: {fileID: 0}
+    destination: {x: 0, y: 0, z: 0}
+    state: 0
+    strategy: 0
+    searchDirection: {x: 0, y: 0, z: 0}
+    area: 
+    targetName: 
+    seeTarget: 0
+    runningAbortFlag: 0
+    plotName: 
+  description: 
+  drawGizmos: 0
+  children:
+  - {fileID: -6435763025285092490}
+  - {fileID: -8442974765543755363}
+  - {fileID: -6558569335978819909}
+--- !u!114 &-6558569335978819909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd051379badf4ef4ab35a1a2a00c617e, type: 3}
+  m_Name: MoveWaitPlayer
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 31f9fc34c78fc5a41a1f21952b9b830a
+  position: {x: -17.463863, y: 462.66678}
+  blackboard:
+    interactionTarget: {fileID: 0}
+    eye: {fileID: 0}
+    target: {fileID: 0}
+    destination: {x: 0, y: 0, z: 0}
+    state: 0
+    strategy: 0
+    searchDirection: {x: 0, y: 0, z: 0}
+    area: 
+    targetName: 
+    seeTarget: 0
+    runningAbortFlag: 0
+    plotName: 
+  description: 
+  drawGizmos: 0
+  maxDistance: 5
+  minMovingDistance: 2
+  lookAtSpeed: 6
+--- !u!114 &-6435763025285092490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 252ee26a73fdf0a4686d91456525339d, type: 3}
+  m_Name: AIPlotControl
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 5eec2a3d4fb4d3c48ac8229ba831b028
+  position: {x: -363.1368, y: 418.47125}
+  blackboard:
+    interactionTarget: {fileID: 0}
+    eye: {fileID: 0}
+    target: {fileID: 0}
+    destination: {x: 0, y: 0, z: 0}
+    state: 0
+    strategy: 0
+    searchDirection: {x: 0, y: 0, z: 0}
+    area: 
+    targetName: 
+    seeTarget: 0
+    runningAbortFlag: 0
+    plotName: 
+  description: 
+  drawGizmos: 0
+  plotName: 03_0
+--- !u!114 &-759638681169367093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 163c147d123e4a945b688eddc64e3ea5, type: 3}
+  m_Name: RootNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: a0b87883409eb2946be9e2e5520d1e2c
+  position: {x: -2, y: -145}
+  blackboard:
+    interactionTarget: {fileID: 0}
+    eye: {fileID: 0}
+    target: {fileID: 0}
+    destination: {x: 0, y: 0, z: 0}
+    state: 0
+    strategy: 0
+    searchDirection: {x: 0, y: 0, z: 0}
+    area: 
+    targetName: 
+    seeTarget: 0
+    runningAbortFlag: 0
+    plotName: 
+  description: 
+  drawGizmos: 0
+  child: {fileID: -8297136883338984980}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d285eb63c2cdd74180de7cfceaa96ad, type: 3}
+  m_Name: Unity Chan Scene03
+  m_EditorClassIdentifier: 
+  rootNode: {fileID: -759638681169367093}
+  treeState: 0
+  nodes:
+  - {fileID: -759638681169367093}
+  - {fileID: -8297136883338984980}
+  - {fileID: 4920036797016598529}
+  - {fileID: -6435763025285092490}
+  - {fileID: -7019895567591737915}
+  - {fileID: -6558569335978819909}
+  - {fileID: -8442974765543755363}
+  blackboard:
+    interactionTarget: {fileID: 0}
+    eye: {fileID: 0}
+    target: {fileID: 0}
+    destination: {x: 122.41201, y: 0, z: 102.972}
+    state: 0
+    strategy: 0
+    searchDirection: {x: 0, y: 0, z: 0}
+    area: 
+    targetName: 
+    seeTarget: 0
+    runningAbortFlag: 0
+    plotName: 03_0
+--- !u!114 &4920036797016598529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 460be9e34c566ea45b9e282b1adcb028, type: 3}
+  m_Name: Selector
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: d244a4774e2585d4ba17e741c09ff5c9
+  position: {x: -1.9999847, y: 134.6175}
+  blackboard:
+    interactionTarget: {fileID: 0}
+    eye: {fileID: 0}
+    target: {fileID: 0}
+    destination: {x: 0, y: 0, z: 0}
+    state: 0
+    strategy: 0
+    searchDirection: {x: 0, y: 0, z: 0}
+    area: 
+    targetName: 
+    seeTarget: 0
+    runningAbortFlag: 0
+    plotName: 
+  description: 
+  drawGizmos: 0
+  children:
+  - {fileID: -7019895567591737915}

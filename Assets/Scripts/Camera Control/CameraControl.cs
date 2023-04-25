@@ -16,6 +16,7 @@ public class CameraControl : MonoBehaviour
    private float _rotateAngle = 0f;
    private float _currentAngle = 0f;
    private float _rotateDirection;
+   public bool fllowYaxis = false;
 
    [SerializeReference] private float maximumViewScale = 10.0f;
    [SerializeReference] private float viewScaleSpeed = 10.0f;
@@ -77,6 +78,7 @@ public class CameraControl : MonoBehaviour
       Vector3 movement = follow.position - _targetPosLastFrame;
       _deltaMove.x = movement.x;
       _deltaMove.z = movement.z;
+      if (fllowYaxis) _deltaMove.y = movement.y;
       transform.position += _deltaMove;
       _targetPosLastFrame = follow.position;
    }

@@ -20,6 +20,13 @@ namespace TheKiwiCoder {
         public bool drawGizmos = false;
 
         public State Update() {
+            if (blackboard.runningAbortFlag)
+            {
+                blackboard.runningAbortFlag = false;
+                Abort();
+                return State.Failure;
+            }
+
             if (!started) {
                 OnStart();
                 started = true;

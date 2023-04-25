@@ -1,0 +1,130 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9008801114703535719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 313ce2d4a8bbea64f89656682f10d465, type: 3}
+  m_Name: Move
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 2d1d7217dc4907948b124224aab06c0f
+  position: {x: -0.000011445423, y: 301.60175}
+  blackboard:
+    interactionTarget: {fileID: 0}
+    eye: {fileID: 0}
+    target: {fileID: 0}
+    destination: {x: 0, y: 0, z: 0}
+    state: 0
+    strategy: 0
+    searchDirection: {x: 0, y: 0, z: 0}
+    area: 
+    targetName: 
+    seeTarget: 0
+    runningAbortFlag: 0
+    plotName: 
+  description: 
+  drawGizmos: 0
+--- !u!114 &-7706062765664903590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afb5496e8cd973748a10b3e3ef436ebd, type: 3}
+  m_Name: Repeat
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 1
+  guid: 2d963465a9f999c4bb88f81a52bd5379
+  position: {x: 0, y: 125.33331}
+  blackboard:
+    interactionTarget: {fileID: 0}
+    eye: {fileID: 0}
+    target: {fileID: 0}
+    destination: {x: 0, y: 0, z: 0}
+    state: 0
+    strategy: 0
+    searchDirection: {x: 0, y: 0, z: 0}
+    area: 
+    targetName: 
+    seeTarget: 0
+    runningAbortFlag: 0
+    plotName: 
+  description: 
+  drawGizmos: 0
+  child: {fileID: -9008801114703535719}
+  restartOnSuccess: 1
+  restartOnFailure: 0
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d285eb63c2cdd74180de7cfceaa96ad, type: 3}
+  m_Name: Yuko Adult Scene3
+  m_EditorClassIdentifier: 
+  rootNode: {fileID: 5874759767830528741}
+  treeState: 0
+  nodes:
+  - {fileID: 5874759767830528741}
+  - {fileID: -7706062765664903590}
+  - {fileID: -9008801114703535719}
+  blackboard:
+    interactionTarget: {fileID: 0}
+    eye: {fileID: 0}
+    target: {fileID: 0}
+    destination: {x: 0, y: 0, z: 8.34}
+    state: 0
+    strategy: 0
+    searchDirection: {x: 0, y: 0, z: 0}
+    area: 
+    targetName: Yuko
+    seeTarget: 0
+    runningAbortFlag: 0
+    plotName: 
+--- !u!114 &5874759767830528741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 163c147d123e4a945b688eddc64e3ea5, type: 3}
+  m_Name: RootNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 1
+  guid: 1499b698a2f4a8d439a7799c2a7e2a2f
+  position: {x: 0, y: 0}
+  blackboard:
+    interactionTarget: {fileID: 0}
+    eye: {fileID: 0}
+    target: {fileID: 0}
+    destination: {x: 0, y: 0, z: 0}
+    state: 0
+    strategy: 0
+    searchDirection: {x: 0, y: 0, z: 0}
+    area: 
+    targetName: 
+    seeTarget: 0
+    runningAbortFlag: 0
+    plotName: 
+  description: 
+  drawGizmos: 0
+  child: {fileID: -7706062765664903590}

@@ -23,6 +23,7 @@ MonoBehaviour:
     target: {fileID: 0}
     destination: {x: 0, y: 0, z: 0}
     state: 0
+    strategy: 0
   description: 
   drawGizmos: 0
   child: {fileID: -3752977264289448561}
@@ -51,6 +52,7 @@ MonoBehaviour:
     target: {fileID: 0}
     destination: {x: 0, y: 0, z: 0}
     state: 0
+    strategy: 0
   description: 
   drawGizmos: 0
 --- !u!114 &-19386989692943242
@@ -76,6 +78,7 @@ MonoBehaviour:
     target: {fileID: 0}
     destination: {x: 0, y: 0, z: 0}
     state: 0
+    strategy: 0
   description: 
   drawGizmos: 0
   child: {fileID: -6257188167321517607}
@@ -104,3 +107,4 @@ MonoBehaviour:
     target: {fileID: 0}
     destination: {x: 0, y: 0, z: 0}
     state: 0
+    strategy: 0

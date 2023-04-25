@@ -17,12 +17,18 @@ MonoBehaviour:
   guid: 2d1d7217dc4907948b124224aab06c0f
   position: {x: 171, y: 394.33334}
   blackboard:
-    moveToPosition: {x: 0, y: 0, z: 0}
     interactionTarget: {fileID: 0}
     eye: {fileID: 0}
     target: {fileID: 0}
     destination: {x: 0, y: 0, z: 0}
     state: 0
+    strategy: 0
+    searchDirection: {x: 0, y: 0, z: 0}
+    area: 
+    targetName: 
+    seeTarget: 0
+    runningAbortFlag: 0
+    plotName: 
   description: 
   drawGizmos: 0
 --- !u!114 &-8189694987036650392
@@ -42,12 +48,18 @@ MonoBehaviour:
   guid: 9b1e3e1cb4a87f0428e369a6b6ee5bf4
   position: {x: 0, y: 253.68}
   blackboard:
-    moveToPosition: {x: 0, y: 0, z: 0}
     interactionTarget: {fileID: 0}
     eye: {fileID: 0}
     target: {fileID: 0}
     destination: {x: 0, y: 0, z: 0}
     state: 0
+    strategy: 0
+    searchDirection: {x: 0, y: 0, z: 0}
+    area: 
+    targetName: 
+    seeTarget: 0
+    runningAbortFlag: 0
+    plotName: 
   description: 
   drawGizmos: 0
   children:
@@ -70,12 +82,18 @@ MonoBehaviour:
   guid: 2d963465a9f999c4bb88f81a52bd5379
   position: {x: 0, y: 125.33331}
   blackboard:
-    moveToPosition: {x: 0, y: 0, z: 0}
     interactionTarget: {fileID: 0}
     eye: {fileID: 0}
     target: {fileID: 0}
     destination: {x: 0, y: 0, z: 0}
     state: 0
+    strategy: 0
+    searchDirection: {x: 0, y: 0, z: 0}
+    area: 
+    targetName: 
+    seeTarget: 0
+    runningAbortFlag: 0
+    plotName: 
   description: 
   drawGizmos: 0
   child: {fileID: -8189694987036650392}
@@ -98,12 +116,18 @@ MonoBehaviour:
   guid: 87317c61f9cea224b937b9133661b647
   position: {x: -167, y: 394.6667}
   blackboard:
-    moveToPosition: {x: 0, y: 0, z: 0}
     interactionTarget: {fileID: 0}
     eye: {fileID: 0}
     target: {fileID: 0}
     destination: {x: 0, y: 0, z: 0}
     state: 0
+    strategy: 0
+    searchDirection: {x: 0, y: 0, z: 0}
+    area: 
+    targetName: 
+    seeTarget: 0
+    runningAbortFlag: 0
+    plotName: 
   description: 
   drawGizmos: 0
   children:
@@ -129,12 +153,18 @@ MonoBehaviour:
   guid: 8f153d414b4f7a74eaa489e1e8c2cae1
   position: {x: -525.3333, y: 618.5502}
   blackboard:
-    moveToPosition: {x: 0, y: 0, z: 0}
     interactionTarget: {fileID: 0}
     eye: {fileID: 0}
     target: {fileID: 0}
     destination: {x: 0, y: 0, z: 0}
     state: 0
+    strategy: 0
+    searchDirection: {x: 0, y: 0, z: 0}
+    area: 
+    targetName: 
+    seeTarget: 0
+    runningAbortFlag: 0
+    plotName: 
   description: 
   drawGizmos: 0
   CharacterStatestate: 2
@@ -157,12 +187,18 @@ MonoBehaviour:
   guid: 1c9b7d697068c664089b15a2020b1541
   position: {x: -268, y: 767.2168}
   blackboard:
-    moveToPosition: {x: 0, y: 0, z: 0}
     interactionTarget: {fileID: 0}
     eye: {fileID: 0}
     target: {fileID: 0}
     destination: {x: 0, y: 0, z: 0}
     state: 0
+    strategy: 0
+    searchDirection: {x: 0, y: 0, z: 0}
+    area: 
+    targetName: 
+    seeTarget: 0
+    runningAbortFlag: 0
+    plotName: 
   description: 
   drawGizmos: 0
 --- !u!114 &-5899013979747449930
@@ -182,12 +218,18 @@ MonoBehaviour:
   guid: 1651986d589aa5b47b8897c40254e5b7
   position: {x: -174.66664, y: 683.8835}
   blackboard:
-    moveToPosition: {x: 0, y: 0, z: 0}
     interactionTarget: {fileID: 0}
     eye: {fileID: 0}
     target: {fileID: 0}
     destination: {x: 0, y: 0, z: 0}
     state: 0
+    strategy: 0
+    searchDirection: {x: 0, y: 0, z: 0}
+    area: 
+    targetName: 
+    seeTarget: 0
+    runningAbortFlag: 0
+    plotName: 
   description: 
   drawGizmos: 0
   CharacterStatestate: 2
@@ -210,12 +252,18 @@ MonoBehaviour:
   guid: 63b671d6d84e4fe468ac2dd57259d1ca
   position: {x: 21.333344, y: 749.2168}
   blackboard:
-    moveToPosition: {x: 0, y: 0, z: 0}
     interactionTarget: {fileID: 0}
     eye: {fileID: 0}
     target: {fileID: 0}
     destination: {x: 0, y: 0, z: 0}
     state: 0
+    strategy: 0
+    searchDirection: {x: 0, y: 0, z: 0}
+    area: 
+    targetName: 
+    seeTarget: 0
+    runningAbortFlag: 0
+    plotName: 
   description: 
   drawGizmos: 0
 --- !u!114 &11400000
@@ -245,12 +293,18 @@ MonoBehaviour:
   - {fileID: 9006656527315747420}
   - {fileID: -2847053385898037362}
   blackboard:
-    moveToPosition: {x: 0, y: 0, z: 0}
     interactionTarget: {fileID: 0}
     eye: {fileID: 0}
     target: {fileID: 0}
-    destination: {x: 0, y: 0, z: 0}
+    destination: {x: 0, y: 0, z: 8.34}
     state: 0
+    strategy: 0
+    searchDirection: {x: 0, y: 0, z: 0}
+    area: 
+    targetName: Yuko
+    seeTarget: 0
+    runningAbortFlag: 0
+    plotName: 
 --- !u!114 &1269894020226535154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -268,12 +322,18 @@ MonoBehaviour:
   guid: b18597b19da891544bd1a2c7714c958b
   position: {x: -417.99994, y: 701.8835}
   blackboard:
-    moveToPosition: {x: 0, y: 0, z: 0}
     interactionTarget: {fileID: 0}
     eye: {fileID: 0}
     target: {fileID: 0}
     destination: {x: 0, y: 0, z: 0}
     state: 0
+    strategy: 0
+    searchDirection: {x: 0, y: 0, z: 0}
+    area: 
+    targetName: 
+    seeTarget: 0
+    runningAbortFlag: 0
+    plotName: 
   description: 
   drawGizmos: 0
 --- !u!114 &5874759767830528741
@@ -293,12 +353,18 @@ MonoBehaviour:
   guid: 1499b698a2f4a8d439a7799c2a7e2a2f
   position: {x: 0, y: 0}
   blackboard:
-    moveToPosition: {x: 0, y: 0, z: 0}
     interactionTarget: {fileID: 0}
     eye: {fileID: 0}
     target: {fileID: 0}
     destination: {x: 0, y: 0, z: 0}
     state: 0
+    strategy: 0
+    searchDirection: {x: 0, y: 0, z: 0}
+    area: 
+    targetName: 
+    seeTarget: 0
+    runningAbortFlag: 0
+    plotName: 
   description: 
   drawGizmos: 0
   child: {fileID: -7706062765664903590}
@@ -319,12 +385,18 @@ MonoBehaviour:
   guid: 833e072089c62f048a24fa3231df8a82
   position: {x: 21.333344, y: 612.5501}
   blackboard:
-    moveToPosition: {x: 0, y: 0, z: 0}
     interactionTarget: {fileID: 0}
     eye: {fileID: 0}
     target: {fileID: 0}
     destination: {x: 0, y: 0, z: 0}
     state: 0
+    strategy: 0
+    searchDirection: {x: 0, y: 0, z: 0}
+    area: 
+    targetName: 
+    seeTarget: 0
+    runningAbortFlag: 0
+    plotName: 
   description: 
   drawGizmos: 0
   child: {fileID: -2847053385898037362}

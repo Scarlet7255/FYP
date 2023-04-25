@@ -1,0 +1,472 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8978872700544581466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 481b564c9880fa0429f1a7c2debd70c7, type: 3}
+  m_Name: CheckStrategy
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: c7c399b22e5ba3944ae5e33f27a92985
+  position: {x: 40.06778, y: 810}
+  blackboard:
+    interactionTarget: {fileID: 0}
+    eye: {fileID: 0}
+    target: {fileID: 0}
+    destination: {x: -9.83, y: 0, z: 2.23}
+    state: 0
+    strategy: 0
+    searchDirection: {x: 0, y: 0, z: 0}
+    area: Home
+    targetName: Yuko
+    seeTarget: 0
+    runningAbortFlag: 1
+    plotName: 
+  description: 
+  drawGizmos: 0
+  Strategy: 0
+--- !u!114 &-7950982562472947733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca07dd1b47fcee940be3bddf1baa3195, type: 3}
+  m_Name: ActionSearch
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 921cc6f2d76066c4493d063755c1ad22
+  position: {x: -431.99997, y: 669.35046}
+  blackboard:
+    interactionTarget: {fileID: 0}
+    eye: {fileID: 0}
+    target: {fileID: 0}
+    destination: {x: -9.83, y: 0, z: 2.23}
+    state: 0
+    strategy: 0
+    searchDirection: {x: 0, y: 0, z: 0}
+    area: Home
+    targetName: Yuko
+    seeTarget: 0
+    runningAbortFlag: 1
+    plotName: 
+  description: 
+  drawGizmos: 0
+--- !u!114 &-7916554220704256970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afb5496e8cd973748a10b3e3ef436ebd, type: 3}
+  m_Name: Repeat
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: a4baf993e442ce2448342812db358388
+  position: {x: -0.000011178716, y: 128.49925}
+  blackboard:
+    interactionTarget: {fileID: 0}
+    eye: {fileID: 0}
+    target: {fileID: 0}
+    destination: {x: -9.83, y: 0, z: 2.23}
+    state: 0
+    strategy: 0
+    searchDirection: {x: 0, y: 0, z: 0}
+    area: Home
+    targetName: Yuko
+    seeTarget: 0
+    runningAbortFlag: 1
+    plotName: 
+  description: 
+  drawGizmos: 1
+  child: {fileID: -1481869224038985011}
+  restartOnSuccess: 1
+  restartOnFailure: 1
+--- !u!114 &-6917325378641413220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61431bba79d7d7843b82bf1de71703f5, type: 3}
+  m_Name: Sequencer
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 8543a1f9c3ed0b949acada043c546021
+  position: {x: -253.33318, y: 464.67813}
+  blackboard:
+    interactionTarget: {fileID: 0}
+    eye: {fileID: 0}
+    target: {fileID: 0}
+    destination: {x: -9.83, y: 0, z: 2.23}
+    state: 0
+    strategy: 0
+    searchDirection: {x: 0, y: 0, z: 0}
+    area: Home
+    targetName: Yuko
+    seeTarget: 0
+    runningAbortFlag: 1
+    plotName: 
+  description: 
+  drawGizmos: 0
+  children:
+  - {fileID: 3333720766133792206}
+  - {fileID: -7950982562472947733}
+  - {fileID: 2779563343365125078}
+  - {fileID: -1218318419293069957}
+--- !u!114 &-4881496006442208342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61431bba79d7d7843b82bf1de71703f5, type: 3}
+  m_Name: Sequencer
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 5d9fa685d3a461343a45c660bc3e98f5
+  position: {x: 295.40106, y: 449.33325}
+  blackboard:
+    interactionTarget: {fileID: 0}
+    eye: {fileID: 0}
+    target: {fileID: 0}
+    destination: {x: -9.83, y: 0, z: 2.23}
+    state: 0
+    strategy: 0
+    searchDirection: {x: 0, y: 0, z: 0}
+    area: Home
+    targetName: Yuko
+    seeTarget: 0
+    runningAbortFlag: 1
+    plotName: 
+  description: 
+  drawGizmos: 0
+  children:
+  - {fileID: -8978872700544581466}
+  - {fileID: -1074364809743964534}
+  - {fileID: -1932141204841641873}
+  - {fileID: -3327535601100602787}
+--- !u!114 &-3327535601100602787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8cfd1b9270a314418a0525f18062170, type: 3}
+  m_Name: RandomlyWait
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 81deb6d5e68d02f4d8d52d367aa6232f
+  position: {x: 543.4012, y: 810}
+  blackboard:
+    interactionTarget: {fileID: 0}
+    eye: {fileID: 0}
+    target: {fileID: 0}
+    destination: {x: -9.83, y: 0, z: 2.23}
+    state: 0
+    strategy: 0
+    searchDirection: {x: 0, y: 0, z: 0}
+    area: Home
+    targetName: Yuko
+    seeTarget: 0
+    runningAbortFlag: 1
+    plotName: 
+  description: 
+  drawGizmos: 0
+  minDuration: 1
+  maxDuration: 3
+--- !u!114 &-1932141204841641873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 313ce2d4a8bbea64f89656682f10d465, type: 3}
+  m_Name: Move
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 56c4462b2dd18bb44855e2e5ac5c5267
+  position: {x: 370.7345, y: 810}
+  blackboard:
+    interactionTarget: {fileID: 0}
+    eye: {fileID: 0}
+    target: {fileID: 0}
+    destination: {x: -9.83, y: 0, z: 2.23}
+    state: 0
+    strategy: 0
+    searchDirection: {x: 0, y: 0, z: 0}
+    area: Home
+    targetName: Yuko
+    seeTarget: 0
+    runningAbortFlag: 1
+    plotName: 
+  description: 
+  drawGizmos: 0
+--- !u!114 &-1481869224038985011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 460be9e34c566ea45b9e282b1adcb028, type: 3}
+  m_Name: Selector
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: f6ca629123a2f264da2627ceee7484f0
+  position: {x: -0.000061035156, y: 294.07986}
+  blackboard:
+    interactionTarget: {fileID: 0}
+    eye: {fileID: 0}
+    target: {fileID: 0}
+    destination: {x: -9.83, y: 0, z: 2.23}
+    state: 0
+    strategy: 0
+    searchDirection: {x: 0, y: 0, z: 0}
+    area: Home
+    targetName: Yuko
+    seeTarget: 0
+    runningAbortFlag: 1
+    plotName: 
+  description: 
+  drawGizmos: 0
+  children:
+  - {fileID: -6917325378641413220}
+  - {fileID: -4881496006442208342}
+--- !u!114 &-1218318419293069957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8cfd1b9270a314418a0525f18062170, type: 3}
+  m_Name: RandomlyWait
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 776145d364113dc49bf9711a1103a91f
+  position: {x: -74.6669, y: 669.3334}
+  blackboard:
+    interactionTarget: {fileID: 0}
+    eye: {fileID: 0}
+    target: {fileID: 0}
+    destination: {x: -9.83, y: 0, z: 2.23}
+    state: 0
+    strategy: 0
+    searchDirection: {x: 0, y: 0, z: 0}
+    area: Home
+    targetName: Yuko
+    seeTarget: 0
+    runningAbortFlag: 1
+    plotName: 
+  description: 
+  drawGizmos: 0
+  minDuration: 0
+  maxDuration: 1
+--- !u!114 &-1074364809743964534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92cbc12a427c46c4494537811e6cc01b, type: 3}
+  m_Name: MoveInSeq
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: dad4e32041c2dc5418d9b8093aeea9b5
+  position: {x: 203.4011, y: 810}
+  blackboard:
+    interactionTarget: {fileID: 0}
+    eye: {fileID: 0}
+    target: {fileID: 0}
+    destination: {x: -9.83, y: 0, z: 2.23}
+    state: 0
+    strategy: 0
+    searchDirection: {x: 0, y: 0, z: 0}
+    area: Home
+    targetName: Yuko
+    seeTarget: 0
+    runningAbortFlag: 1
+    plotName: 
+  description: 
+  drawGizmos: 0
+  mode: 1
+  area: Home
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d285eb63c2cdd74180de7cfceaa96ad, type: 3}
+  m_Name: Akio
+  m_EditorClassIdentifier: 
+  rootNode: {fileID: 8666184537577552490}
+  treeState: 0
+  nodes:
+  - {fileID: 8666184537577552490}
+  - {fileID: -7916554220704256970}
+  - {fileID: -1481869224038985011}
+  - {fileID: -8978872700544581466}
+  - {fileID: -4881496006442208342}
+  - {fileID: -1932141204841641873}
+  - {fileID: -3327535601100602787}
+  - {fileID: -1074364809743964534}
+  - {fileID: -6917325378641413220}
+  - {fileID: 3333720766133792206}
+  - {fileID: -7950982562472947733}
+  - {fileID: 2779563343365125078}
+  - {fileID: -1218318419293069957}
+  blackboard:
+    interactionTarget: {fileID: 0}
+    eye: {fileID: 0}
+    target: {fileID: 0}
+    destination: {x: -9.83, y: 0, z: 2.23}
+    state: 0
+    strategy: 0
+    searchDirection: {x: 0, y: 0, z: 0}
+    area: Home
+    targetName: Yuko
+    seeTarget: 0
+    runningAbortFlag: 1
+    plotName: 
+--- !u!114 &2779563343365125078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56074aa877abd3943ada0d44889ce006, type: 3}
+  m_Name: ActionChase
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 14f02f300d29e7b41b41c422de829c20
+  position: {x: -253.33328, y: 669.35046}
+  blackboard:
+    interactionTarget: {fileID: 0}
+    eye: {fileID: 0}
+    target: {fileID: 0}
+    destination: {x: -9.83, y: 0, z: 2.23}
+    state: 0
+    strategy: 0
+    searchDirection: {x: 0, y: 0, z: 0}
+    area: Home
+    targetName: Yuko
+    seeTarget: 0
+    runningAbortFlag: 1
+    plotName: 
+  description: 
+  drawGizmos: 0
+  speed: 2
+--- !u!114 &3333720766133792206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 481b564c9880fa0429f1a7c2debd70c7, type: 3}
+  m_Name: CheckStrategy
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 007d6918e90dcd949b8ea0cee05c94cc
+  position: {x: -613.99994, y: 669.35046}
+  blackboard:
+    interactionTarget: {fileID: 0}
+    eye: {fileID: 0}
+    target: {fileID: 0}
+    destination: {x: -9.83, y: 0, z: 2.23}
+    state: 0
+    strategy: 0
+    searchDirection: {x: 0, y: 0, z: 0}
+    area: Home
+    targetName: Yuko
+    seeTarget: 0
+    runningAbortFlag: 1
+    plotName: 
+  description: 
+  drawGizmos: 0
+  Strategy: 1
+--- !u!114 &8666184537577552490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 163c147d123e4a945b688eddc64e3ea5, type: 3}
+  m_Name: RootNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: daac0d5a28e0dc84585114a6445a1836
+  position: {x: 0, y: 0}
+  blackboard:
+    interactionTarget: {fileID: 0}
+    eye: {fileID: 0}
+    target: {fileID: 0}
+    destination: {x: -9.83, y: 0, z: 2.23}
+    state: 0
+    strategy: 0
+    searchDirection: {x: 0, y: 0, z: 0}
+    area: Home
+    targetName: Yuko
+    seeTarget: 0
+    runningAbortFlag: 1
+    plotName: 
+  description: 
+  drawGizmos: 1
+  child: {fileID: -7916554220704256970}

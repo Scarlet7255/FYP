@@ -8,11 +8,11 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Costume_02_00
-  m_Shader: {fileID: 4800000, guid: af8454e09b3a41448a4140e792059446, type: 3}
-  m_ValidKeywords:
-  - _EMISSIVE_SIMPLE
+  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_ValidKeywords: []
   m_InvalidKeywords:
   - _
+  - _EMISSIVE_SIMPLE
   - _INVERSE_Z_AXIS_BLD_ON
   - _IS_BLENDADDTOMATCAP_ON
   - _IS_FILTER_HICUTPOINTLIGHTCOLOR_ON
@@ -28,7 +28,7 @@ Material:
   - _SET_SYSTEMSHADOWSTOBASE_ON
   - _USE_1STAS2ND_ON
   - _USE_BASEAS1ST_ON
-  m_LightmapFlags: 5
+  m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -180,7 +180,9 @@ Material:
     - _EMISSIVE: 0
     - _Farthest_Distance: 100
     - _GI_Intensity: 0
-    - _Glossiness: 0.5
+    - _GlossMapScale: 1
+    - _Glossiness: 0
+    - _GlossyReflections: 1
     - _HighColor_Power: 0
     - _Inverse_Clipping: 0
     - _Inverse_MatcapMask: 0
@@ -236,6 +238,8 @@ Material:
     - _Scroll_EmissiveV: 0
     - _Set_SystemShadowsToBase: 1
     - _ShadeColor_Step: 0.217
+    - _SmoothnessTextureChannel: 0
+    - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _StencilNo: 1
     - _StepOffset: 0
@@ -262,7 +266,7 @@ Material:
     - _2nd_ShadeColor: {r: 0.41985583, g: 0.53640765, b: 0.8018868, a: 1}
     - _Ap_RimLightColor: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 0.7647059, g: 0.7647059, b: 0.7647059, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _ColorShift: {r: 0, g: 0, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Emissive_Color: {r: 0, g: 0, b: 0, a: 1}

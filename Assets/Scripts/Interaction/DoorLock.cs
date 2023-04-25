@@ -19,7 +19,7 @@ public class DoorLock : InteractableObject
         }
     }
 
-    protected override void OnTriggerStay(Collider other)
+    protected new void OnTriggerStay(Collider other)
     {
         if (other.tag.Equals("Player") && door.AllClose && 
             Common.IsFront(other.transform.position, transform.position, transform.forward, 0.7f))

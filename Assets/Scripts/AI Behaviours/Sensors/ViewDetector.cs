@@ -2,8 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
-using UnityEditor.Rendering;
+
 
 public class ViewDetector : MonoBehaviour
 {
@@ -16,15 +15,14 @@ public class ViewDetector : MonoBehaviour
     
     public float lReactTime;
     public float hReactTime;
+    public float continueTime;
     
-    private Collider[] detectionColliderBuffer = new Collider[20];
+    public Collider[] detectionColliderBuffer = new Collider[20];
     private Dictionary<string, Detection> _detections;
     
     
     private bool tagFlag = false; // use to track the detection information valid each frame
     private List<string> _untrackList; // use store keys in dicitionary
-    
-    
 
     /// <summary>
     /// check if there is a expected target
@@ -71,14 +69,16 @@ public class ViewDetector : MonoBehaviour
        
        for (int i = 0; i<len; ++i)
        {
-           DetectionTarget target = detectionColliderBuffer[i].GetComponent<DetectionTarget>();
+           DetectionTarget target;
+           if(!detectionColliderBuffer[i].TryGetComponent<DetectionTarget>(out target))continue;
+           
            string targetName = target.owner.name;
            
            // check if detected and in which area 
            int v = CheckArea(target.transform.position);
            if (v == 0)
            {
-               _detections.Remove(targetName);
+               DelayRemoveDetection(targetName);
                continue;
            }
 
@@ -89,10 +89,10 @@ public class ViewDetector : MonoBehaviour
                    visibleLayers))
            {
                int hitLayerMask = 1 << hitInfo.collider.gameObject.layer;
-               
+
                if ((hitLayerMask & detectLayers.value )== 0)//blocked by obstacle
                {
-                   _detections.Remove(targetName);
+                   DelayRemoveDetection(targetName);
                    continue;
                }
                 // update or add information if detected
@@ -101,6 +101,7 @@ public class ViewDetector : MonoBehaviour
                    var value = _detections[targetName];
                    value.Timer += Time.deltaTime;
                    value.tag = tagFlag;
+                   value.life = continueTime;
                    if (v == 1 && value.Timer >= lReactTime)
                        value.detected = true;
                    else if (value.Timer >= hReactTime)
@@ -109,7 +110,7 @@ public class ViewDetector : MonoBehaviour
                }
                else
                {
-                   Detection val = new Detection(target.owner,tagFlag);
+                   Detection val = new Detection(target.owner,tagFlag,continueTime);
                    _detections.Add(targetName,val);
                }
            }
@@ -134,7 +135,7 @@ public class ViewDetector : MonoBehaviour
 
         foreach (var v in _untrackList)
         {
-            _detections.Remove(v);
+            DelayRemoveDetection(v);
         }
         
         _untrackList.Clear();
@@ -156,19 +157,33 @@ public class ViewDetector : MonoBehaviour
         return 0;
     }
 
+    private void DelayRemoveDetection(string targetName)
+    {
+        if (!_detections.ContainsKey(targetName)) return;
+        var t = _detections[targetName];
+        t.life -= Time.deltaTime;
+        
+        if (t.life <= 0f) 
+            _detections.Remove(targetName);
+        else 
+            _detections[targetName] = t;
+    }
+
     private struct Detection
     {
         public GameObject Owner;
         public float Timer;
         public bool detected;
         public bool tag;// the flag to track detection information
+        public float life;
         
-        public Detection(GameObject o, bool t)
+        public Detection(GameObject o, bool t, float continueTime)
         {
             Owner = o;
             Timer = 0.0f;
             detected = false;
             tag = t;
+            life = continueTime;
         }
     }
 }

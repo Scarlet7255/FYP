@@ -9,11 +9,17 @@ namespace TheKiwiCoder {
     // Add other properties here that make sense for your specific use case.
     [System.Serializable]
     public class Blackboard {
-        public Vector3 moveToPosition;
         public InteractableObject interactionTarget;
         public ViewDetector eye;
         public Transform target;
         public Vector3 destination;
         public CharacterState state;
+        public AIStrategy strategy;
+        public Vector3 searchDirection;
+        public string area;
+        public string targetName;
+        public bool seeTarget;
+        public bool runningAbortFlag = false;
+        public string plotName;
     }
 }
